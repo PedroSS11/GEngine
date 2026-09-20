@@ -22,6 +22,20 @@ int main()
         glfwTerminate();
         return -1;
     }
+
+    glfwMakeContextCurrent(window);
+
+    while (!glfwWindowShouldClose(window))
+    {
+        // fica lendo eventos
+        glfwPollEvents();
+
+        glfwSwapBuffers(window);
+    }
+
+    glfwDestroyWindow(window);
+    glfwTerminate();
+
     // std::cout<< "olha essa geometria" << std::endl;
     return 0;
 }
