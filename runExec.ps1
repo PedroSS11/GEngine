@@ -1,0 +1,2 @@
+./buildExec
+./build/GEngine.exe
