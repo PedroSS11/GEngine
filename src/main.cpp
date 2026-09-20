@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+#include <glad/gl.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 
@@ -24,9 +25,14 @@ int main()
     }
 
     glfwMakeContextCurrent(window);
+    gladLoadGL(glfwGetProcAddress);
+    fprintf(stderr, "OpenGL %s\n", glGetString(GL_VERSION));
+
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
     while (!glfwWindowShouldClose(window))
     {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         // fica lendo eventos
         glfwPollEvents();
 

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 4.0)
 
 project(GEngine
     VERSION 0.1.0
-    LANGUAGES CXX
+    LANGUAGES C CXX
 )
 
 set(CMAKE_CXX_STANDARD 20)
@@ -29,4 +29,12 @@ add_executable(GEngine
     src/main.cpp
 )
 
-target_link_libraries(GEngine PRIVATE glfw glm)
+add_library(glad STATIC
+    external/glad/src/gl.c
+)
+
+target_include_directories(glad PUBLIC
+    external/glad/include
+)
+
+target_link_libraries(GEngine PRIVATE glfw glm glad)
