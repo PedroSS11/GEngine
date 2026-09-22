@@ -27,6 +27,7 @@ FetchContent_MakeAvailable(glfw glm)
 
 add_executable(GEngine
     src/main.cpp
+    src/GLSLProgram.cpp
 )
 
 add_library(glad STATIC
